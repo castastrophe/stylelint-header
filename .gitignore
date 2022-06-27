@@ -1,0 +1,10 @@
+# logging / private config
+yarn-error.log
+.DS_STORE
+.DS_Store
+.gitconfig
+
+# npm assets
+node_modules
+npm-debug.log
+package-lock.json
