@@ -1,0 +1,19 @@
+name: Feature request
+description: Describe the feature you would like added
+title: '[Feat]: '
+labels: [enhancement, triage]
+# assignees:
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Thanks for taking the time to fill out this feature request. Please be sure to review the [issue queue](./issues) first to prevent duplication.
+    - type: textarea
+      id: description
+      attributes:
+          label: Description of the requested feature
+          description: A brief description of the feature you would like added.
+    - type: textarea
+      id: code
+      attributes:
+          label: Implementation notes or ideas
