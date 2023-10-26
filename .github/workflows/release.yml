@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GH_PAC_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_PAC_TOKEN }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Use Node LTS version
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: 18
+          registry-url: "https://registry.npmjs.org"
+
+      ## --- YARN CACHE --- ##
+      - name: Check for cached dependencies
+        continue-on-error: true
+        id: cache-dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            .cache/yarn
+            node_modules
+          key: ubuntu-latest-node18-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --cache-folder .cache/yarn
+
+      - name: Semantic release
+        uses: cycjimmy/semantic-release-action@v4
