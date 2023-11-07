@@ -1061,7 +1061,7 @@
     fs-extra "^11.0.0"
     lodash "^4.17.4"
 
-"@semantic-release/commit-analyzer@^10.0.0", "@semantic-release/commit-analyzer@^10.0.1":
+"@semantic-release/commit-analyzer@^10.0.0":
   version "10.0.4"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-10.0.4.tgz#e2770f341b75d8f19fe6b5b833e8c2e0de2b84de"
   integrity sha512-pFGn99fn8w4/MHE0otb2A/l5kxgOuxaaauIh4u30ncoTJuqWj4hXTgEJ03REqjS+w1R2vPftSsO26WC61yOcpw==
@@ -1071,6 +1071,19 @@
     conventional-commits-parser "^5.0.0"
     debug "^4.0.0"
     import-from "^4.0.0"
+    lodash-es "^4.17.21"
+    micromatch "^4.0.2"
+
+"@semantic-release/commit-analyzer@^11.1.0":
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-11.1.0.tgz#dd24663c4e1e7c218f53de73f5c639eb2d5a077e"
+  integrity sha512-cXNTbv3nXR2hlzHjAMgbuiQVtvWHTlwwISt60B+4NZv01y/QRY7p2HcJm8Eh2StzcTJoNnflvKjHH/cjFS7d5g==
+  dependencies:
+    conventional-changelog-angular "^7.0.0"
+    conventional-commits-filter "^4.0.0"
+    conventional-commits-parser "^5.0.0"
+    debug "^4.0.0"
+    import-from-esm "^1.0.3"
     lodash-es "^4.17.21"
     micromatch "^4.0.2"
 
@@ -2028,6 +2041,13 @@ conventional-changelog-angular@^6.0.0:
   dependencies:
     compare-func "^2.0.0"
 
+conventional-changelog-angular@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-angular/-/conventional-changelog-angular-7.0.0.tgz#5eec8edbff15aa9b1680a8dcfbd53e2d7eb2ba7a"
+  integrity sha512-ROjNchA9LgfNMTTFSIWPzebCwOGFdgkEq45EnvvrmSLvCtAw0HSmrCs7/ty+wAeYUZyNay0YMUNYFTRL72PkBQ==
+  dependencies:
+    compare-func "^2.0.0"
+
 conventional-changelog-conventionalcommits@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/conventional-changelog-conventionalcommits/-/conventional-changelog-conventionalcommits-6.1.0.tgz#3bad05f4eea64e423d3d90fc50c17d2c8cf17652"
@@ -2978,6 +2998,13 @@ import-fresh@^3.0.0, import-fresh@^3.2.1, import-fresh@^3.3.0:
     parent-module "^1.0.0"
     resolve-from "^4.0.0"
 
+import-from-esm@^1.0.3:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/import-from-esm/-/import-from-esm-1.1.2.tgz#3ea963a44c7004808c29cff8b5e424e99fdd779b"
+  integrity sha512-eiTpN9aVpkAOteuKJHEXmA6tAvTnV5yFX+5TVvL7brJDkW0VZFYgorqDMxXBFMOf0P35+lbMIvVrcZSO8dzPZg==
+  dependencies:
+    import-meta-resolve "^4.0.0"
+
 import-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/import-from/-/import-from-4.0.0.tgz#2710b8d66817d232e16f4166e319248d3d5492e2"
@@ -2995,6 +3022,11 @@ import-local@^3.0.2:
   dependencies:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
+
+import-meta-resolve@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/import-meta-resolve/-/import-meta-resolve-4.0.0.tgz#0b1195915689f60ab00f830af0f15cc841e8919e"
+  integrity sha512-okYUR7ZQPH+efeuMJGlq4f8ubUgO50kByRPyt/Cy1Io4PSRsPjxME+YlVaCOx+NIToW7hCsZNFJyTPFFKepRSA==
 
 imurmurhash@^0.1.4:
   version "0.1.4"
