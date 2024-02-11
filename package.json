@@ -27,7 +27,7 @@
 		}
 	],
 	"engines": {
-		"node": ">=18"
+		"node": ">=20.8.1"
 	},
 	"files": [
 		"index.js",
@@ -50,11 +50,11 @@
 		"@commitlint/cli": "^17.5.1",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@semantic-release/changelog": "^6.0.3",
-		"@semantic-release/commit-analyzer": "^10.0.1",
+		"@semantic-release/commit-analyzer": "^11.1.0",
 		"@semantic-release/git": "^10.0.1",
-		"@semantic-release/github": "^9.0.3",
-		"@semantic-release/npm": "^10.0.2",
-		"@semantic-release/release-notes-generator": "^11.0.2",
+		"@semantic-release/github": "^9.2.6",
+		"@semantic-release/npm": "^11.0.2",
+		"@semantic-release/release-notes-generator": "^12.1.0",
 		"jest": "^29.7.0",
 		"jest-preset-stylelint": "^6.3.1",
 		"lodash": "^4.17.21",
@@ -63,7 +63,7 @@
 		"stylelint": "^15.11.0",
 		"prettier": "^2.8.7",
 		"prettier-package-json": "^2.8.0",
-		"semantic-release": "^21.0.2"
+		"semantic-release": "^23.0.2"
 	},
 	"jest": {
 		"preset": "jest-preset-stylelint"
