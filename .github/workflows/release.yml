@@ -29,14 +29,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: yarn
-          node-version: 18
+          node-version: 20
           registry-url: "https://registry.npmjs.org"
 
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
         continue-on-error: true
         id: cache-dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             .cache/yarn

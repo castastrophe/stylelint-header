@@ -20,9 +20,8 @@ jobs:
         system:
           - macos-latest
           - ubuntu-latest
-          # - windows-latest
+          - windows-latest
         node-version:
-          - 18
           - 20
         stylelint-version:
           - 13
@@ -44,7 +43,7 @@ jobs:
       - name: Check for cached dependencies
         continue-on-error: true
         id: cache-dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             .cache/yarn
@@ -73,13 +72,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: yarn
-          node-version: 18
+          node-version: 20
 
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
         continue-on-error: true
         id: cache-dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             .cache/yarn
