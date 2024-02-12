@@ -1,10 +1,26 @@
 version: 2
 updates:
-    - package-ecosystem: 'npm'
-      directory: '/'
-      schedule:
-          interval: 'weekly'
-          day: 'tuesday'
-          time: '12:00'
-          timezone: 'America/Los_Angeles'
-      open-pull-requests-limit: 5
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'tuesday'
+      time: '12:00'
+      timezone: 'America/Los_Angeles'
+    open-pull-requests-limit: 5
+    assignees:
+      - 'castastrophe'
+    groups:
+      commitlint-ecosystem:
+        patterns:
+          - "@commitlint/*"
+          - "commitlint"
+      semantic-release-ecosystem:
+        patterns:
+          - "@semantic-release/*"
+          - "semantic-release"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
