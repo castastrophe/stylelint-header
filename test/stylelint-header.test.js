@@ -10,17 +10,29 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-const { readFileSync } = require("fs");
-const { join } = require("path");
+import { readFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
-const { getTestRule } = require("jest-preset-stylelint");
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const plugin = require("..");
-const { messages, ruleName } = plugin;
+import { getTestRule, getTestRuleConfigs } from "jest-preset-stylelint";
 
-const testRule = getTestRule({ plugins: ["."] });
+import myPlugin from "../index.js";
 
+const plugins = [myPlugin];
+
+global.testRule = getTestRule({ plugins });
+global.testRuleConfigs = getTestRuleConfigs({ plugins });
+
+const {
+	ruleName,
+	rule: { messages },
+} = myPlugin;
+
+/** @description Test case with input file URL */
 testRule({
+	plugins,
 	ruleName,
 	config: [
 		join("test", "input.txt"),
@@ -50,7 +62,9 @@ testRule({
 	],
 });
 
+/** @description Test case with input template string */
 testRule({
+	plugins,
 	ruleName,
 	config: [
 		"Copyright <%= YEAR %> <%= company %>.",
@@ -78,7 +92,9 @@ testRule({
 	],
 });
 
+/** @description Test case with multi-line header in input file */
 testRule({
+	plugins,
 	ruleName,
 	config: [join(__dirname, "../COPYRIGHT")],
 
@@ -98,7 +114,9 @@ testRule({
 	],
 });
 
+/** @description Test case with disabled rule (should not run) */
 testRule({
+	plugins,
 	ruleName,
 	config: null,
 	accept: [
@@ -109,7 +127,9 @@ testRule({
 	],
 });
 
+/** @description Test case with invalid input */
 testRule({
+	plugins,
 	ruleName,
 	config: true,
 	reject: [
@@ -121,7 +141,9 @@ testRule({
 	],
 });
 
+/** @description Test case with invalid input for nonMatchingTolerance */
 testRule({
+	plugins,
 	ruleName,
 	config: ["Copyright <%= YEAR %> Adobe.", { nonMatchingTolerance: 10 }],
 	reject: [
