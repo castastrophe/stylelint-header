@@ -41,7 +41,7 @@ jobs:
           path: |
             .cache/yarn
             node_modules
-          key: ubuntu-latest-node18-${{ hashFiles('yarn.lock') }}
+          key: ubuntu-latest-node20å-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --cache-folder .cache/yarn

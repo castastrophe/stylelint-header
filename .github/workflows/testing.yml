@@ -24,9 +24,8 @@ jobs:
         node-version:
           - 20
         stylelint-version:
-          - 13
-          - 14
           - 15
+          - 16
     runs-on: ${{ matrix.system }}
     name: Stylelint v${{ matrix.stylelint-version }} | ${{ matrix.system }} | node v${{ matrix.node-version }}
     steps:
