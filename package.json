@@ -1,7 +1,7 @@
 {
 	"name": "stylelint-header",
 	"description": "A stylelint plugin that checks for a file header.",
-	"version": "1.1.0",
+	"version": "1.0.0",
 	"license": "Apache-2.0",
 	"author": "Cassondra Roberts <castastrophe@users.noreply.github.com> (https://allons-y.llc)",
 	"repository": {
@@ -41,7 +41,7 @@
 		"linter"
 	],
 	"peerDependencies": {
-		"stylelint": "^13.0.0 || ^14.0.0 || ^15.0.0"
+		"stylelint": "^14.0.0 || ^15.0.0"
 	},
 	"dependencies": {
 		"string-similarity": "^4.0.4"
