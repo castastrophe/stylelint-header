@@ -41,7 +41,7 @@
 		"linter"
 	],
 	"peerDependencies": {
-		"stylelint": "^13.0.0 || ^14.0.0 || ^15.0.0"
+		"stylelint": "^14.0.0 || ^15.0.0"
 	},
 	"dependencies": {
 		"string-similarity": "^4.0.4"
