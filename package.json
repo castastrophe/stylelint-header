@@ -47,7 +47,7 @@
 		"string-similarity": "^4.0.4"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.5.1",
+		"@commitlint/cli": "^19.0.3",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@semantic-release/commit-analyzer": "^11.1.0",
 		"@semantic-release/git": "^10.0.1",
