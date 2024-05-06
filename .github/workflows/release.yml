@@ -32,22 +32,11 @@ jobs:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
 
-      ## --- YARN CACHE --- ##
-      - name: Check for cached dependencies
-        continue-on-error: true
-        id: cache-dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            .cache/yarn
-            node_modules
-          key: ubuntu-latest-node20å-${{ hashFiles('yarn.lock') }}
-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --cache-folder .cache/yarn
+        run: yarn install --frozen-lockfile
 
       - name: Semantic release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v4.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAC_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

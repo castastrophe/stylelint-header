@@ -100,7 +100,7 @@ jobs:
           thresholds: "80 100"
 
       - name: Add coverage PR comment
-        uses: marocchino/sticky-pull-request-comment@v2.8.0
+        uses: marocchino/sticky-pull-request-comment@v2.9.0
         with:
           recreate: true
           path: code-coverage-results.md
