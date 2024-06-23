@@ -13,6 +13,7 @@
 	},
 	"type": "module",
 	"module": "index.js",
+	"exports": "./index.js",
 	"scripts": {
 		"postinstall": "husky || true",
 		"prepack": "pinst --disable",
