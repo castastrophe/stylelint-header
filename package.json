@@ -20,7 +20,7 @@
 		"postpack": "pinst --enable",
 		"coverage": "yarn test --coverage --coverageReporters=cobertura",
 		"semantic-release": "semantic-release",
-		"prepublishOnly": "yarn test",
+		"prepublish": "yarn test",
 		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
 		"watch": "yarn test --watch"
 	},
@@ -48,8 +48,8 @@
 		"stylelint": "^15.0.0 || ^16.0.0"
 	},
 	"dependencies": {
-		"string-similarity": "^4.0.4",
-		"lodash-es": "^4.17.21"
+		"lodash-es": "^4.17.21",
+		"string-similarity": "^4.0.4"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.6.1",
@@ -84,5 +84,6 @@
 		"package.json": [
 			"prettier-package-json --write"
 		]
-	}
+	},
+	"packageManager": "yarn@4.6.0"
 }
