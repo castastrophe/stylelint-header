@@ -20,7 +20,7 @@
 		"postpack": "pinst --enable",
 		"coverage": "yarn test --coverage --coverageReporters=cobertura",
 		"semantic-release": "semantic-release",
-		"prepublishOnly": "yarn test",
+		"prepublish": "yarn test",
 		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
 		"watch": "yarn test --watch"
 	},
@@ -31,7 +31,7 @@
 		}
 	],
 	"engines": {
-		"node": ">=20.8.1"
+		"node": ">=22"
 	},
 	"files": [
 		"index.js",
@@ -45,11 +45,11 @@
 		"linter"
 	],
 	"peerDependencies": {
-		"stylelint": "^15.0.0 || ^16.0.0"
+		"stylelint": ">=16"
 	},
 	"dependencies": {
-		"string-similarity": "^4.0.4",
-		"lodash-es": "^4.17.21"
+		"lodash-es": "^4.17.21",
+		"string-similarity": "^4.0.4"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.6.1",
@@ -62,13 +62,13 @@
 		"cross-env": "^7.0.3",
 		"husky": "^9.1.7",
 		"jest": "^29.7.0",
-		"jest-preset-stylelint": "^7.1.1",
-		"lint-staged": "^15.4.1",
+		"jest-preset-stylelint": "^7.2.0",
+		"lint-staged": "^15.4.3",
 		"pinst": "^3.0.0",
 		"prettier": "^3.4.2",
 		"prettier-package-json": "^2.8.0",
 		"semantic-release": "^24.2.1",
-		"stylelint": "^16.13.2"
+		"stylelint": "^16.14.1"
 	},
 	"jest": {
 		"preset": "jest-preset-stylelint"
@@ -84,5 +84,6 @@
 		"package.json": [
 			"prettier-package-json --write"
 		]
-	}
+	},
+	"packageManager": "yarn@4.6.0"
 }

@@ -22,9 +22,8 @@ jobs:
           - ubuntu-latest
           - windows-latest
         node-version:
-          - 20
+          - 22
         stylelint-version:
-          - 15
           - 16
     runs-on: ${{ matrix.system }}
     name: Stylelint v${{ matrix.stylelint-version }} | ${{ matrix.system }} | node v${{ matrix.node-version }}
@@ -38,6 +37,9 @@ jobs:
           cache: yarn
           node-version: ${{ matrix.node-version}}
 
+      - name: Enable Corepack
+        run: corepack enable
+
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
         continue-on-error: true
@@ -50,10 +52,10 @@ jobs:
           key: ${{ matrix.system }}-node${{ matrix.node-version }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --cache-folder .cache/yarn
+        run: yarn install --immutable
 
       - name: Set stylelint version
-        run: yarn add -DW stylelint@^${{ matrix.stylelint-version }}
+        run: yarn add -D stylelint@^${{ matrix.stylelint-version }}
 
       - name: Run test suite
         run: yarn test --ci --reporters github-actions
@@ -71,7 +73,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: yarn
-          node-version: 20
+          node-version: 22
 
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
@@ -82,10 +84,10 @@ jobs:
           path: |
             .cache/yarn
             node_modules
-          key: ubuntu-latest-node18-${{ hashFiles('yarn.lock') }}
+          key: ubuntu-latest-node22-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --cache-folder .cache/yarn
+        run: yarn install --frozen-lockfile
 
       - name: Run coverage report
         run: yarn coverage --ci
@@ -100,7 +102,7 @@ jobs:
           thresholds: "80 100"
 
       - name: Add coverage PR comment
-        uses: marocchino/sticky-pull-request-comment@v2.9.0
+        uses: marocchino/sticky-pull-request-comment@v2.9.1
         with:
           recreate: true
           path: code-coverage-results.md

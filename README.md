@@ -7,7 +7,7 @@ This rule will cause stylelint to throw an error if no header exists in the file
 ## Installation
 
 ```sh
-yarn add -DW stylelint-header
+yarn add -D stylelint-header
 ```
 
 ```sh
@@ -40,7 +40,7 @@ And the resulting header will look like this:
 
 ```css
 /*!
- * (c) 2020 Adobe
+ * (c) 2025 Adobe
  */
 ```
 
