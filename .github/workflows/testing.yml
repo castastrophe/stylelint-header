@@ -22,10 +22,8 @@ jobs:
           - ubuntu-latest
           - windows-latest
         node-version:
-          - 20
           - 22
         stylelint-version:
-          - 15
           - 16
     runs-on: ${{ matrix.system }}
     name: Stylelint v${{ matrix.stylelint-version }} | ${{ matrix.system }} | node v${{ matrix.node-version }}
@@ -75,7 +73,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: yarn
-          node-version: 20
+          node-version: 22
 
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
@@ -86,7 +84,7 @@ jobs:
           path: |
             .cache/yarn
             node_modules
-          key: ubuntu-latest-node20-${{ hashFiles('yarn.lock') }}
+          key: ubuntu-latest-node22-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
