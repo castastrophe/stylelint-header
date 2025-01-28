@@ -48,7 +48,8 @@
 		"stylelint": "^15.0.0 || ^16.0.0"
 	},
 	"dependencies": {
-		"string-similarity": "^4.0.4"
+		"string-similarity": "^4.0.4",
+		"lodash-es": "^4.17.21"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.6.1",
@@ -64,7 +65,6 @@
 		"jest-preset-stylelint": "^7.1.1",
 		"lint-staged": "^15.4.1",
 		"pinst": "^3.0.0",
-		"lodash": "^4.17.21",
 		"prettier": "^3.4.2",
 		"prettier-package-json": "^2.8.0",
 		"semantic-release": "^24.2.1",
