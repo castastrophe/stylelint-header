@@ -7,7 +7,7 @@ This rule will cause stylelint to throw an error if no header exists in the file
 ## Installation
 
 ```sh
-yarn add -DW stylelint-header
+yarn add -D stylelint-header
 ```
 
 ```sh
