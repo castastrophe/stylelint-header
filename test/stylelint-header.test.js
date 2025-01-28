@@ -155,3 +155,36 @@ testRule({
 		},
 	],
 });
+
+/** @description Test case to validate removable tests */
+testRule({
+	plugins,
+	ruleName,
+	config: [
+		join("test", "input.txt"),
+		{
+			nonMatchingTolerance: 1,
+			templateVariables: {
+				company: "Adobe",
+			},
+			isRemovable: true,
+		},
+	],
+	fix: true,
+
+	accept: [
+		{
+			code: readFileSync(join("test", "pass-removable.css"), { encoding: "utf-8" }),
+			description: "Simple CSS with header included in a removable comment",
+		},
+	],
+
+	reject: [
+		{
+			code: readFileSync(join("test", "fail.css"), { encoding: "utf-8" }),
+			fixed: readFileSync(join("test", "fixed-removable.css"), { encoding: "utf-8" }),
+			description: "Auto-fix file missing header with removable comment",
+			message: messages.rejected,
+		},
+	],
+});

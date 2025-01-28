@@ -35,8 +35,9 @@ const meta = {
 
 /**
  * @typedef {object} Options
- * @property {number} nonMatchingTolerance
- * @property {{ [string]: any }} templateVariables
+ * @property {number} [nonMatchingTolerance=0.98] -- percentage of allowed difference between a found comment in the file and the provided header
+ * @property {{ [string]: any }} [templateVariables={}] -- used to replace variables in the header template
+ * @property {boolean} [isRemovable=false] -- whether the comment starts with `/*!`, a special syntax that is often retained even when other comments are stripped by minifiers such as cssnano
  */
 
 /** @type {import('stylelint').Rule<string, Options>} */
@@ -63,6 +64,7 @@ const ruleFunction =
 						(val) => typeof val === "number" && val >= 0 && val <= 1,
 					],
 					templateVariables: [Object, null],
+					isRemovable: [Boolean, null],
 				},
 			},
 		);
@@ -91,6 +93,7 @@ const ruleFunction =
 		});
 
 		const nonMatchingTolerance = options?.nonMatchingTolerance || 0.98;
+		const isRemovable = options?.isRemovable || false;
 
 		// Walk comments on root to find if header exists
 		let found = false;
@@ -124,7 +127,7 @@ const ruleFunction =
 					.map((line) => ` * ${line}`)
 					.join("\n"),
 				raws: {
-					left: "!\n",
+					left: isRemovable ? "\n" : "!\n",
 					right: "\n ",
 				},
 			});

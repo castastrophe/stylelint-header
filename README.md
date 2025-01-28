@@ -18,7 +18,7 @@ npm install --dev stylelint-header
 
 #### templateVariables
 
-Type `object`; Default {}
+Type `object`; Default `{}`
 
 This is an object of key/value pairs that will be used to replace variables in the header template. For example, if you have a header template that looks like this:
 
@@ -56,9 +56,15 @@ This plugin is using [lodash.template](https://lodash.com/docs/4.17.15#template)
 
 #### nonMatchingTolerance
 
-Type `numeric`; Default 0.98
+Type `numeric`; Default `0.98`
 
 This is a number between 0 and 1 representing the percentage of allowed difference between a found comment in the file and the provided header. Uses [`string-similarity`](https://www.npmjs.com/package/string-similarity) to determine value.
+
+#### isRemovable
+
+Type `boolean`; Default `false`
+
+This setting determines whether the comment starts with `/*!`, a special syntax that is often retained even when other comments are stripped by minifiers such as cssnano. If set to `true`, copyright comments will be added with `/*` only; by default all comments use `/*!`.
 
 ## Usage
 
