@@ -40,7 +40,7 @@ And the resulting header will look like this:
 
 ```css
 /*!
- * (c) 2020 Adobe
+ * (c) 2025 Adobe
  */
 ```
 
