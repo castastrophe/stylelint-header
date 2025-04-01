@@ -4685,11 +4685,11 @@ __metadata:
   linkType: hard
 
 "jest-preset-stylelint@npm:^7.1.1":
-  version: 7.2.0
-  resolution: "jest-preset-stylelint@npm:7.2.0"
+  version: 7.3.0
+  resolution: "jest-preset-stylelint@npm:7.3.0"
   peerDependencies:
     jest: ^29.0.2
-  checksum: 10c0/fec1691da0fc76379ce1bbc9b37aa79cafb7079dd10d22c6a8176bd33bc5702ce9f198270b35155cba5fd9579b6748d61878b31695fe24f70b4ded8ec4bb2113
+  checksum: 10c0/e430dd5c5e4ad3b933f5d8668cfa1a832affde64abb802665aa32e86d5ab4516d77c98713b57c7e14e4d286edd82dcc2a7c2f1d1098fe19f49e3bd4ee0872085
   languageName: node
   linkType: hard
 
