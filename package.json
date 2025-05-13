@@ -1,89 +1,89 @@
 {
-	"name": "stylelint-header",
-	"description": "A stylelint plugin that checks for a file header.",
-	"version": "3.0.0",
-	"license": "Apache-2.0",
-	"author": "Cassondra Roberts <castastrophe@users.noreply.github.com> (https://allons-y.llc)",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/castastrophe/stylelint-header.git"
-	},
-	"bugs": {
-		"url": "https://github.com/castastrophe/stylelint-header/issues"
-	},
-	"type": "module",
-	"module": "index.js",
-	"exports": "./index.js",
-	"scripts": {
-		"postinstall": "husky || true",
-		"prepack": "pinst --disable",
-		"postpack": "pinst --enable",
-		"coverage": "yarn test --coverage --coverageReporters=cobertura",
-		"semantic-release": "semantic-release",
-		"prepublish": "yarn test",
-		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-		"watch": "yarn test --watch"
-	},
-	"funding": [
-		{
-			"type": "github",
-			"url": " https://github.com/sponsors/castastrophe"
-		}
-	],
-	"engines": {
-		"node": ">=22"
-	},
-	"files": [
-		"index.js",
-		"!test/*"
-	],
-	"keywords": [
-		"stylelint",
-		"header",
-		"stylelint-plugin",
-		"css",
-		"linter"
-	],
-	"peerDependencies": {
-		"stylelint": ">=16"
-	},
-	"dependencies": {
-		"lodash-es": "^4.17.21",
-		"string-similarity": "^4.0.4"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^19.8.0",
-		"@commitlint/config-conventional": "^19.8.0",
-		"@semantic-release/commit-analyzer": "^13.0.1",
-		"@semantic-release/git": "^10.0.1",
-		"@semantic-release/github": "^11.0.1",
-		"@semantic-release/npm": "^12.0.1",
-		"@semantic-release/release-notes-generator": "^14.0.3",
-		"cross-env": "^7.0.3",
-		"husky": "^9.1.7",
-		"jest": "^29.7.0",
-		"jest-preset-stylelint": "^7.3.0",
-		"lint-staged": "^15.5.1",
-		"pinst": "^3.0.0",
-		"prettier": "^3.5.3",
-		"prettier-package-json": "^2.8.0",
-		"semantic-release": "^24.2.3",
-		"stylelint": "^16.18.0"
-	},
-	"jest": {
-		"preset": "jest-preset-stylelint"
-	},
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
-	},
-	"lint-staged": {
-		"*.js": [
-			"prettier --write"
-		],
-		"package.json": [
-			"prettier-package-json --write"
-		]
-	},
-	"packageManager": "yarn@4.6.0"
+  "name": "stylelint-header",
+  "version": "3.0.0",
+  "description": "A stylelint plugin that checks for a file header.",
+  "license": "Apache-2.0",
+  "author": "Cassondra Roberts <castastrophe@users.noreply.github.com> (https://allons-y.llc)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castastrophe/stylelint-header.git"
+  },
+  "bugs": {
+    "url": "https://github.com/castastrophe/stylelint-header/issues"
+  },
+  "type": "module",
+  "exports": "./index.js",
+  "module": "index.js",
+  "files": [
+    "index.js",
+    "!test/*"
+  ],
+  "scripts": {
+    "coverage": "yarn test --coverage --coverageReporters=cobertura",
+    "postinstall": "husky || true",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "prepublish": "yarn test",
+    "semantic-release": "semantic-release",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "string-similarity": "^4.0.4"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.2",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.3",
+    "cross-env": "^7.0.3",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jest-preset-stylelint": "^7.3.0",
+    "lint-staged": "^16.0.0",
+    "pinst": "^3.0.0",
+    "prettier": "^3.5.3",
+    "prettier-package-json": "^2.8.0",
+    "semantic-release": "^24.2.3",
+    "stylelint": "^16.19.1"
+  },
+  "keywords": [
+    "css",
+    "header",
+    "linter",
+    "stylelint",
+    "stylelint-plugin"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": " https://github.com/sponsors/castastrophe"
+    }
+  ],
+  "jest": {
+    "preset": "jest-preset-stylelint"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "prettier-package-json --write"
+    ]
+  },
+  "packageManager": "yarn@4.9.1"
 }
