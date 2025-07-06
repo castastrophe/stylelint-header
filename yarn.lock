@@ -4927,12 +4927,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-stylelint@npm:^7.3.0":
-  version: 7.3.0
-  resolution: "jest-preset-stylelint@npm:7.3.0"
+"jest-preset-stylelint@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "jest-preset-stylelint@npm:8.0.0"
   peerDependencies:
-    jest: ^29.0.2
-  checksum: 10c0/e430dd5c5e4ad3b933f5d8668cfa1a832affde64abb802665aa32e86d5ab4516d77c98713b57c7e14e4d286edd82dcc2a7c2f1d1098fe19f49e3bd4ee0872085
+    jest: ^30.0.2
+  checksum: 10c0/ace913029e21352d8cd8b038b84592c7375fdd5d0391d8a26b0dae6d2d469fc23a77afbcdeab42204f8d94e0687b0e7a676056e10918e1c8a8d2e51b6ce8e219
   languageName: node
   linkType: hard
 
@@ -7726,7 +7726,7 @@ __metadata:
     cross-env: "npm:^7.0.3"
     husky: "npm:^9.1.7"
     jest: "npm:^30.0.2"
-    jest-preset-stylelint: "npm:^7.3.0"
+    jest-preset-stylelint: "npm:^8.0.0"
     lint-staged: "npm:^16.0.0"
     lodash-es: "npm:^4.17.21"
     pinst: "npm:^3.0.0"
