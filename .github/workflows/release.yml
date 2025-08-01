@@ -39,7 +39,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Semantic release
-        uses: cycjimmy/semantic-release-action@v4.2.1
+        uses: cycjimmy/semantic-release-action@v4.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAC_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
