@@ -29,7 +29,7 @@ jobs:
     name: Stylelint v${{ matrix.stylelint-version }} | ${{ matrix.system }} | node v${{ matrix.node-version }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Use Node LTS version
         uses: actions/setup-node@v4
@@ -67,7 +67,7 @@ jobs:
     name: Coverage reporting
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Use Node LTS version
         uses: actions/setup-node@v4
