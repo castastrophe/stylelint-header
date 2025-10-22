@@ -29,30 +29,30 @@
     "watch": "yarn test --watch"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21",
-    "string-similarity": "^4.0.4"
+    "lodash-es": "4.17.21",
+    "string-similarity": "4.0.4"
   },
   "peerDependencies": {
     "stylelint": ">=16"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.2",
-    "@semantic-release/npm": "^13.0.0",
-    "@semantic-release/release-notes-generator": "^14.0.3",
-    "cross-env": "^10.0.0",
-    "husky": "^9.1.7",
-    "jest": "^30.0.2",
-    "jest-preset-stylelint": "^8.0.0",
-    "lint-staged": "^16.0.0",
-    "pinst": "^3.0.0",
-    "prettier": "^3.5.3",
-    "prettier-package-json": "^2.8.0",
-    "semantic-release": "^24.2.3",
-    "stylelint": "^16.19.1"
+    "@commitlint/cli": "20.1.0",
+    "@commitlint/config-conventional": "20.0.0",
+    "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "12.0.0",
+    "@semantic-release/npm": "13.1.1",
+    "@semantic-release/release-notes-generator": "14.1.0",
+    "cross-env": "10.1.0",
+    "husky": "9.1.7",
+    "jest": "30.2.0",
+    "jest-preset-stylelint": "8.0.0",
+    "lint-staged": "16.2.5",
+    "pinst": "3.0.0",
+    "prettier": "3.6.2",
+    "prettier-package-json": "2.8.0",
+    "semantic-release": "25.0.1",
+    "stylelint": "16.25.0"
   },
   "keywords": [
     "css",
@@ -62,7 +62,7 @@
     "stylelint-plugin"
   ],
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "publishConfig": {
     "access": "public",
