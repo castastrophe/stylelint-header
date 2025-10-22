@@ -14,6 +14,17 @@ yarn add -D stylelint-header
 npm install --dev stylelint-header
 ```
 
+Example of adding the plugin to your stylelint config:
+
+```json
+{
+  "plugins": ["stylelint-header"],
+  "rules": {
+    "header/header": ["./COPYRIGHT"],
+  },
+}
+```
+
 ### Options
 
 #### templateVariables
