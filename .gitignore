@@ -4,6 +4,8 @@ npm-debug.log
 coverage/
 .env
 
+# Yarn
+yarn-error.log
 .pnp.*
 .yarn/*
 !.yarn/patches

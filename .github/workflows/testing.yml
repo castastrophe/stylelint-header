@@ -31,14 +31,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v5
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Use Node LTS version
         uses: actions/setup-node@v6
         with:
           cache: yarn
           node-version: ${{ matrix.node-version}}
-
-      - name: Enable Corepack
-        run: corepack enable
 
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
@@ -69,11 +69,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v5
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Use Node LTS version
         uses: actions/setup-node@v6
         with:
           cache: yarn
-          node-version: 24
+          node-version: 22
 
       ## --- YARN CACHE --- ##
       - name: Check for cached dependencies
@@ -84,10 +87,10 @@ jobs:
           path: |
             .cache/yarn
             node_modules
-          key: ubuntu-latest-node24-stylelint16-${{ hashFiles('yarn.lock') }}
+          key: ubuntu-latest-node22-stylelint16-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run coverage report
         run: yarn coverage --ci
