@@ -62,7 +62,7 @@
     "stylelint-plugin"
   ],
   "engines": {
-    "node": ">=22 <24"
+    "node": ">=22 <25"
   },
   "publishConfig": {
     "access": "public",
