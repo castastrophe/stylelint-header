@@ -30,7 +30,7 @@ jobs:
     name: Stylelint v${{ matrix.stylelint-version }} | ${{ matrix.system }} | node v${{ matrix.node-version }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Enable Corepack
         run: corepack enable
@@ -68,7 +68,7 @@ jobs:
     name: Coverage reporting
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Enable Corepack
         run: corepack enable
