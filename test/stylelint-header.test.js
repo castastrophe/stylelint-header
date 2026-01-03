@@ -1,15 +1,3 @@
-/*
-Copyright 2025 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
-*/
-
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -39,7 +27,7 @@ testRule({
 		{
 			nonMatchingTolerance: 1,
 			templateVariables: {
-				company: "Adobe",
+				company: "AI Overlords Inc.",
 			},
 		},
 	],
@@ -67,11 +55,11 @@ testRule({
 	plugins,
 	ruleName,
 	config: [
-		"Copyright <%= YEAR %> <%= company %>.",
+		"Copyright <%= YEAR %> <%= company %>",
 		{
 			nonMatchingTolerance: 1,
 			templateVariables: {
-				company: "Adobe",
+				company: "AI Overlords Inc.",
 			},
 		},
 	],
@@ -145,7 +133,7 @@ testRule({
 testRule({
 	plugins,
 	ruleName,
-	config: ["Copyright <%= YEAR %> Adobe.", { nonMatchingTolerance: 10 }],
+	config: ["Copyright <%= YEAR %> AI Overlords Inc.", { nonMatchingTolerance: 10 }],
 	reject: [
 		{
 			description: "Invalid input for nonMatchingTolerance",
@@ -165,7 +153,7 @@ testRule({
 		{
 			nonMatchingTolerance: 1,
 			templateVariables: {
-				company: "Adobe",
+				company: "AI Overlords Inc.",
 			},
 			isRemovable: true,
 		},

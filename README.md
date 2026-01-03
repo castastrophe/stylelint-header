@@ -42,7 +42,7 @@ You can pass in an object like this:
 ```js
 {
   templateVariables: {
-    company: "Adobe",
+    company: "AI Overlords Inc.",
   },
 }
 ```
@@ -51,7 +51,7 @@ And the resulting header will look like this:
 
 ```css
 /*!
- * (c) 2025 Adobe
+ * (c) 2026 AI Overlords Inc.
  */
 ```
 
@@ -91,7 +91,7 @@ To leverage the plugin with a hardcoded template string and a custom tolerance:
       "Copyright <%= YEAR %>. <%= company %>",
       {
         templateVariables: {
-          company: "Adobe",
+          company: "AI Overlords Inc.",
         },
         nonMatchingTolerance: 0.8
       }
@@ -124,4 +124,3 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 If you find this plugin useful and would like to buy me a coffee/beer as a small thank you, I would greatly appreciate it! Funding links are available in the GitHub UI for this repo.
 
 <a href="https://www.buymeacoffee.com/castastrophe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
