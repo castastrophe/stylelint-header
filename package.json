@@ -29,7 +29,7 @@
     "watch": "yarn test --watch"
   },
   "dependencies": {
-    "lodash-es": "4.17.22",
+    "lodash-es": "4.17.23",
     "string-similarity": "4.0.4"
   },
   "peerDependencies": {
