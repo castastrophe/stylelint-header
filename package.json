@@ -33,7 +33,7 @@
     "string-similarity": "4.0.4"
   },
   "peerDependencies": {
-    "stylelint": ">=16"
+    "stylelint": "16.x || 17.x"
   },
   "devDependencies": {
     "@commitlint/cli": "20.5.0",
