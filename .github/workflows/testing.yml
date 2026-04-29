@@ -22,7 +22,6 @@ jobs:
           - ubuntu-latest
           - windows-latest
         node-version:
-          - 22
           - 24
         stylelint-version:
           - 16
