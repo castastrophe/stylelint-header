@@ -1,87 +1,55 @@
-# stylelint-header
+<h1 align="center">stylelint-header</h1>
+<p align="center">
+  <b>Enforce a header comment on every stylesheet.</b>
+</p>
 
-A [stylelint](https://github.com/stylelint/stylelint) custom rule to check for a header comment (i.e., copyright notice).
+<div align="center">
 
-This rule will cause stylelint to throw an error if no header exists in the file or if autofix is enabled, it will prepend the header to the document.
+[![Tests][github-image]][github-url]
+[![NPM version][npm-image]][npm-url]
+[![Conventional Commits][conventional-commits-image]][conventional-commits-url]
+
+</div>
+
+A [stylelint](https://github.com/stylelint/stylelint) custom rule that asserts every file begins with a configured header comment — typically a copyright or licence notice. When the header is missing, the rule reports an error; with `--fix`, it prepends the header for you.
+
+## The problem
+
+Copyright and licence headers are easy to add and easy to forget. A pre-commit lint check is the natural place to enforce them, but stylelint doesn't ship a header rule out of the box. **stylelint-header bridges the gap** — point it at a string or a file and every CSS/SCSS/Less file in your project picks up the same header, formatted consistently, with `--fix` doing the boring work.
+
+## Features
+
+- **Template-driven** — pass a string or a path to a file; supports [`lodash.template`](https://lodash.com/docs/4.17.15#template) syntax for variables
+- **Fuzzy matching** — uses [`string-similarity`](https://www.npmjs.com/package/string-similarity) so cosmetic edits (whitespace, year bumps) don't trigger false positives
+- **Auto-fixable** — missing headers are prepended on `--fix`, preserving the rest of the file
+- **Minifier-friendly** — opt into `/*!` syntax so the header survives tools like cssnano
+- **Built-in variables** — `YEAR`, `FILE_NAME`, and `FILE_PATH` are filled in automatically; bring your own as needed
 
 ## Installation
 
 ```sh
-yarn add -D stylelint-header
+yarn add --dev stylelint-header
+npm install --save-dev stylelint-header
+pnpm add --save-dev stylelint-header
+bun add --dev stylelint-header
 ```
-
-```sh
-npm install --dev stylelint-header
-```
-
-Example of adding the plugin to your stylelint config:
-
-```json
-{
-  "plugins": ["stylelint-header"],
-  "rules": {
-    "header/header": ["./COPYRIGHT"],
-  },
-}
-```
-
-### Options
-
-#### templateVariables
-
-Type `object`; Default `{}`
-
-This is an object of key/value pairs that will be used to replace variables in the header template. For example, if you have a header template that looks like this:
-
-```js
-(c) <%= YEAR %> <%= company %>
-```
-
-You can pass in an object like this:
-
-```js
-{
-  templateVariables: {
-    company: "AI Overlords Inc.",
-  },
-}
-```
-
-And the resulting header will look like this:
-
-```css
-/*!
- * (c) 2026 AI Overlords Inc.
- */
-```
-
-Notice that the `YEAR` variable was replaced with the current year but not provided in the templateVariables object. This variable is automatically supported by the plugin.
-
-The following variables are supported by default:
-
-- `YEAR`: The current year
-- `FILE_NAME`: The name of the file being linted
-- `FILE_PATH`: The path to the file being linted
-
-This plugin is using [lodash.template](https://lodash.com/docs/4.17.15#template) to replace variables in the header template. Please refer to the lodash documentation for more information on how to use this feature.
-
-#### nonMatchingTolerance
-
-Type `numeric`; Default `0.98`
-
-This is a number between 0 and 1 representing the percentage of allowed difference between a found comment in the file and the provided header. Uses [`string-similarity`](https://www.npmjs.com/package/string-similarity) to determine value.
-
-#### isRemovable
-
-Type `boolean`; Default `false`
-
-This setting determines whether the comment starts with `/*!`, a special syntax that is often retained even when other comments are stripped by minifiers such as cssnano. If set to `true`, copyright comments will be added with `/*` only; by default all comments use `/*!`.
 
 ## Usage
 
-Add it to your stylelint config `plugins` array, then add `header/header` to your rules, specifying a string or file location for the header template. To toggle the rule off, set the rule to `null`.
+Add the plugin to your stylelint config and enable the `header/header` rule, passing either a string template or a path to a file containing the template. To toggle the rule off, set the value to `null`.
 
-To leverage the plugin with a hardcoded template string and a custom tolerance:
+### With a template file
+
+```json
+{
+	"plugins": ["stylelint-header"],
+	"rules": {
+		"header/header": ["./COPYRIGHT"]
+	}
+}
+```
+
+### With an inline template string
 
 ```js
 {
@@ -93,34 +61,87 @@ To leverage the plugin with a hardcoded template string and a custom tolerance:
         templateVariables: {
           company: "AI Overlords Inc.",
         },
-        nonMatchingTolerance: 0.8
-      }
+        nonMatchingTolerance: 0.8,
+      },
     ],
   },
-};
+}
 ```
 
-To leverage the plugin with a path to a file containing the header template:
+## Options
+
+### `templateVariables`
+
+**Type:** `object` &nbsp;&nbsp;**Default:** `{}`
+
+Key/value pairs used to substitute variables in the header template. Given a template like:
+
+```js
+(c) <%= YEAR %> <%= company %>
+```
+
+and a config of:
 
 ```js
 {
-  "plugins": ["stylelint-header"],
-  "rules": {
-    "header/header": ["./COPYRIGHT"],
+  templateVariables: {
+    company: "AI Overlords Inc.",
   },
-};
+}
 ```
+
+the resulting header becomes:
+
+```css
+/*!
+ * (c) 2026 AI Overlords Inc.
+ */
+```
+
+`YEAR` was substituted automatically — it doesn't need to appear in `templateVariables`. The following variables are always available:
+
+| Variable    | Value                            |
+| ----------- | -------------------------------- |
+| `YEAR`      | The current year                 |
+| `FILE_NAME` | The basename of the linted file  |
+| `FILE_PATH` | The directory of the linted file |
+
+Templates use [`lodash.template`](https://lodash.com/docs/4.17.15#template) — see the lodash docs for the full syntax.
+
+### `nonMatchingTolerance`
+
+**Type:** `number` between `0` and `1` &nbsp;&nbsp;**Default:** `0.98`
+
+Minimum similarity (per [`string-similarity`](https://www.npmjs.com/package/string-similarity)) between the comment found at the top of the file and the configured header. Lower the value when you want to allow small drift (e.g. a stale year); raise it to enforce an exact match.
+
+### `isRemovable`
+
+**Type:** `boolean` &nbsp;&nbsp;**Default:** `false`
+
+When `true`, generated headers begin with `/*` rather than `/*!`. The `/*!` prefix is preserved by most CSS minifiers (e.g. cssnano) — leave the default in place if you want the header to survive minification, set to `true` if you don't.
+
+## Requirements
+
+- Node.js >= 24
+- stylelint 16.x or 17.x
 
 ## Contributing
 
-Contributions are welcome! Please open an [issue](https://github.com/castastrophe/postcss-custom-properties-mapping/issues/new) or submit a pull request.
+Contributions are welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md) for the full workflow, and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for community expectations. For bugs and ideas, please open an [issue](https://github.com/castastrophe/stylelint-header/issues/new).
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details. This means you can use this however you like as long as you provide attribution back to this one. It's nice to share but it's also nice to get credit for your work. 😉
+[Apache 2.0](./LICENSE) © [Cassondra Roberts](https://allons-y.llc)
 
 ## Funding ☕️
 
 If you find this plugin useful and would like to buy me a coffee/beer as a small thank you, I would greatly appreciate it! Funding links are available in the GitHub UI for this repo.
 
 <a href="https://www.buymeacoffee.com/castastrophe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+[github-image]: https://github.com/castastrophe/stylelint-header/actions/workflows/testing.yml/badge.svg?branch=main
+[github-url]: https://github.com/castastrophe/stylelint-header/actions/workflows/testing.yml
+[npm-image]: https://img.shields.io/npm/v/stylelint-header.svg
+[npm-url]: https://www.npmjs.com/package/stylelint-header
+[conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[conventional-commits-url]: https://conventionalcommits.org/

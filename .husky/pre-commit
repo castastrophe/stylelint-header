@@ -1,1 +1,4 @@
+. .husky/common.sh
+
+yarn lint-staged
 yarn test

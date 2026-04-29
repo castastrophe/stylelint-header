@@ -133,7 +133,10 @@ testRule({
 testRule({
 	plugins,
 	ruleName,
-	config: ["Copyright <%= YEAR %> AI Overlords Inc.", { nonMatchingTolerance: 10 }],
+	config: [
+		"Copyright <%= YEAR %> AI Overlords Inc.",
+		{ nonMatchingTolerance: 10 },
+	],
 	reject: [
 		{
 			description: "Invalid input for nonMatchingTolerance",
@@ -162,7 +165,9 @@ testRule({
 
 	accept: [
 		{
-			code: readFileSync(join("test", "pass-removable.css"), { encoding: "utf-8" }),
+			code: readFileSync(join("test", "pass-removable.css"), {
+				encoding: "utf-8",
+			}),
 			description: "Simple CSS with header included in a removable comment",
 		},
 	],
@@ -170,7 +175,9 @@ testRule({
 	reject: [
 		{
 			code: readFileSync(join("test", "fail.css"), { encoding: "utf-8" }),
-			fixed: readFileSync(join("test", "fixed-removable.css"), { encoding: "utf-8" }),
+			fixed: readFileSync(join("test", "fixed-removable.css"), {
+				encoding: "utf-8",
+			}),
 			description: "Auto-fix file missing header with removable comment",
 			message: messages.rejected,
 		},

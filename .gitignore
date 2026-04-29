@@ -3,6 +3,7 @@ npm-debug.log
 .DS_Store
 coverage/
 .env
+.eslintcache
 
 # Yarn
 yarn-error.log
