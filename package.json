@@ -29,14 +29,14 @@
     "watch": "yarn test --watch"
   },
   "dependencies": {
-    "lodash-es": "4.17.23",
+    "lodash-es": "4.18.1",
     "string-similarity": "4.0.4"
   },
   "peerDependencies": {
-    "stylelint": ">=16"
+    "stylelint": "16.x || 17.x"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.0",
+    "@commitlint/cli": "20.5.2",
     "@commitlint/config-conventional": "20.5.0",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/git": "10.0.1",
@@ -49,10 +49,10 @@
     "jest-preset-stylelint": "9.1.0",
     "lint-staged": "16.4.0",
     "pinst": "3.0.0",
-    "prettier": "3.8.1",
+    "prettier": "3.8.3",
     "prettier-package-json": "2.8.0",
     "semantic-release": "25.0.3",
-    "stylelint": "16.26.1"
+    "stylelint": "17.9.1"
   },
   "keywords": [
     "css",
@@ -62,7 +62,7 @@
     "stylelint-plugin"
   ],
   "engines": {
-    "node": ">=22 <25"
+    "node": ">=24"
   },
   "publishConfig": {
     "access": "public",
